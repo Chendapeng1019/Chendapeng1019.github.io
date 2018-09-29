@@ -156,19 +156,19 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>1.下载mysql的repo源<br>$ wget <a href="http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm" target="_blank" rel="noopener">http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</a></p>
-<p>2.安装mysql-community-release-el7-5.noarch.rpm包<br>$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</p>
-<p>3.安装mysql<br>$ sudo yum install mysql-server</p>
-<p>4.重置mysql密码<br>$ mysql -u root</p>
+                <p>1.下载mysql的repo源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>2.安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-release-el7-5.noarch.rpm包</span><br><span class="line">$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>3.安装mysql<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>4.重置mysql密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root</span><br></pre></td></tr></table></figure></p>
 <p>登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock‘ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：<br>$ sudo chown -R root:root /var/lib/mysql</p>
-<p>重启mysql服务<br>$ service mysqld restart</p>
-<p>接下来登录重置密码：<br>$ mysql -u root  //直接回车进入mysql控制台mysql &gt; use mysql;mysql &gt; update user set password=password(‘cc’) where user=’root’;mysql &gt; exit;</p>
-<p>允许远程连接<br>mysql&gt;grant all privileges on <em>.</em> to ‘root‘@’%’ identified by ‘cc’ with grant option;<br>mysql&gt;flush privileges;<br>4、mysql&gt;EXIT  //退出MySQL服务器</p>
+<p>重启mysql服务<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service mysqld restart</span><br></pre></td></tr></table></figure></p>
+<p>接下来登录重置密码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root  //直接回车进入mysql控制台mysql &gt; use mysql;mysql &gt; update user <span class="built_in">set</span> password=password(‘cc’) <span class="built_in">where</span> user=<span class="string">'root'</span>;mysql &gt; <span class="built_in">exit</span>;</span><br></pre></td></tr></table></figure></p>
+<p>允许远程连接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;grant all privileges on *.* to <span class="string">'root'</span>@<span class="string">'%'</span> identified by ‘cc’ with grant option;</span><br><span class="line">mysql&gt;flush privileges;</span><br><span class="line">mysql&gt;EXIT  //退出MySQL服务器</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>关闭防火墙<br>CentOS 6<br>  [root@localhost ~]#servcie iptables stop                    –临时关闭防火墙<br>  [root@localhost ~]#chkconfig iptables off                    –永久关闭防火墙</li>
+<li>关闭防火墙<br>CentOS 6<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#servcie iptables stop                    --临时关闭防火墙</span></span><br><span class="line">[root@localhost ~]<span class="comment">#chkconfig iptables off                    --永久关闭防火墙</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>CentOS 7<br>systemctl stop firewalld.service #停止firewall</p>
-<p>systemctl disable firewalld.service #禁止firewall开机启动</p>
+<p>CentOS 7<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service <span class="comment">#停止firewall</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止firewall开机启动</span></span><br></pre></td></tr></table></figure></p>
 
             </div>
 

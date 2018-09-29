@@ -156,23 +156,7 @@
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>@Configuration<br>public class CorsConfig {</p>
-<pre><code>private CorsConfiguration buildConfig() {
-    CorsConfiguration corsConfiguration = new CorsConfiguration();
-    corsConfiguration.addAllowedOrigin(&quot;*&quot;); // 允许任何域名使用
-    corsConfiguration.addAllowedHeader(&quot;*&quot;); // 允许任何头
-    corsConfiguration.addAllowedMethod(&quot;*&quot;); // 允许任何方法（post、get等）
-    return corsConfiguration;
-}
-
-@Bean
-public CorsFilter corsFilter() {
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration(&quot;/**&quot;, buildConfig()); // 对接口配置跨域设置
-    return new CorsFilter(source);
-}
-</code></pre><p>}</p>
-<p>浏览器跨域请求实例:<br>fetch(‘<a href="https://www.baidu.com/&#39;" target="_blank" rel="noopener">https://www.baidu.com/&#39;</a>, {<br>  method: ‘post’<br>})</p>
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> CorsConfiguration <span class="title">buildConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(<span class="string">"*"</span>); <span class="comment">// 允许任何域名使用</span></span><br><span class="line">        corsConfiguration.addAllowedHeader(<span class="string">"*"</span>); <span class="comment">// 允许任何头</span></span><br><span class="line">        corsConfiguration.addAllowedMethod(<span class="string">"*"</span>); <span class="comment">// 允许任何方法（post、get等）</span></span><br><span class="line">        <span class="keyword">return</span> corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>, buildConfig()); <span class="comment">// 对接口配置跨域设置</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">浏览器跨域请求实例:</span><br><span class="line">fetch(<span class="string">'https://www.baidu.com/'</span>, &#123;</span><br><span class="line">  method: <span class="string">'post'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
             </div>
 
